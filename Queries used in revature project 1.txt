@@ -1,0 +1,27 @@
+create table Accounts(
+accountId INTEGER PRIMARY KEY IDENTITY(1,1),
+[name] varchar(max),
+[money] float,
+typeId int,
+[type] varchar(30),
+maturityDate datetime,
+ownerId INT FOREIGN KEY REFERENCES Users(userId)
+)
+
+_____________________________________________________
+
+
+create table Users(
+userId INTEGER PRIMARY KEY IDENTITY(1,1),
+userName varchar(max),
+[password] varchar(max)
+)
+
+_____________________________________________________
+
+create table Transactions(
+transactionId INTEGER PRIMARY KEY IDENTITY(1,1),
+details varchar(max),
+[date] datetime,
+associatedAccountId INT FOREIGN KEY REFERENCES Accounts(accountId)
+)
